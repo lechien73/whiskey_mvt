@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Whiskey Ratings</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h2>Whiskey Ratings</h2>
+        </div>
+      </div>
+      {% for whiskey in whiskey_list %}
+
+      <div class="row">
+        <div class="col">
+          <h3>{{ whiskey.name }}</h3>
+          <h4>{{ whiskey.distillery }}</h4>
+          <p>
+            Rating:
+            <em>
+              {% if whiskey.rating == 1 %} Excellent
+              {% elif whiskey.rating == 2 %} Good 
+            {% elif whiskey.rating == 3 %} Meh
+            {% elif whiskey.rating == 4 %} Bad
+            {% elif whiskey.rating == 5 %} Budweiser
+              {% endif %}
+            </em>
+          </p>
+
+          <p>{{ whiskey.notes }}</p>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
