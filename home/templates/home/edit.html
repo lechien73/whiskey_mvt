@@ -20,33 +20,22 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <h2>Whiskey Ratings</h2>
+          <h2>Edit Whiskey</h2>
         </div>
       </div>
-      {% for whiskey in whiskey_list %}
-
+      
       <div class="row">
         <div class="col">
           <h3>{{ whiskey.name }}</h3>
           <h4>{{ whiskey.distillery }}</h4>
-          <p>
-            Rating:
-            <em>
-              {% if whiskey.rating == 1 %} Excellent
-              {% elif whiskey.rating == 2 %} Good 
-              {% elif whiskey.rating == 3 %} Meh
-              {% elif whiskey.rating == 4 %} Bad
-              {% elif whiskey.rating == 5 %} Budweiser
-              {% endif %}
-            </em>
-          </p>
-
-          <p>{{ whiskey.notes }}</p>
-          <a href="edit/{{ whiskey.id }}">Edit your rating</a>
+          <form method="POST">
+            {% csrf_token %}
+            {{ edit_form }}
+            <button class="btn btn-success" type="submit">Submit Changes</button>
+          </form>
         </div>
       </div>
 
-      {% endfor %}
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
