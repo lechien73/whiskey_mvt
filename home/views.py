@@ -13,10 +13,10 @@ class WhiskeyList(generic.ListView):
     template_name = "home/index.html"
 
 
-def EditWhiskey(request, kieran):
+def EditWhiskey(request, id):
 
     queryset = Whiskey.objects.all()
-    whiskey = get_object_or_404(queryset, id=kieran)
+    whiskey = get_object_or_404(queryset, id=id)
 
     if request.method == "POST":
         edit_form = EditForm(data=request.POST, instance=whiskey)
@@ -25,4 +25,3 @@ def EditWhiskey(request, kieran):
 
     edit_form = EditForm({"notes": whiskey.notes, "rating": whiskey.rating})
     return render(request, "home/edit.html", {"whiskey": whiskey, "edit_form": edit_form})
-
