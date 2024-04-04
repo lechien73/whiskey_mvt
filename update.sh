@@ -38,3 +38,4 @@ else
     echo "You will need to add, commit and push to GitHub manually"
     echo "before recreating the workspace."
 fi
+echo ""
