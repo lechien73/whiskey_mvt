@@ -26,14 +26,15 @@ echo "has been done, close the workspace and recreate it."
 echo ""
 echo -n "Would you like me to add, commit and push to GitHub for you? [yes / no]: "
 read answer
-echo ""
 
 if [ $answer = "yes" ] || [ $answer = "y" ] || [ $answer = "YES" ] || [ $answer = "Y" ] ; then
     git add .
     git commit -m "maint: update workspace to use $ide"
     git push
-    echo "All done! Please close this workspace and recreate it."
+    echo ""
+    echo -e "\e[32m\e[1mAll done! Please close this workspace and recreate it.\e[0m"
 else
+    echo ""
     echo "You will need to add, commit and push to GitHub manually"
     echo "before recreating the workspace."
 fi
